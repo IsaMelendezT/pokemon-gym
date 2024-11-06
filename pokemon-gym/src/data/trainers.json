@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Ash",
+      "pokemons": []
+    },
+    {
+      "id": 2,
+      "name": "Misty",
+      "pokemons": []
+    },
+    {
+      "id": 3,
+      "name": "Brock",
+      "pokemons": []
+    }
+  ]
