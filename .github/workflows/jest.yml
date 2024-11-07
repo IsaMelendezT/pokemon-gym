@@ -1,0 +1,36 @@
+name: Run Jest Tests
+
+# Trigger the workflow on push to any branch
+on:
+  push:
+    branches:
+      - main       # Trigger on push to the 'main' branch
+      - '**'       # Or trigger on any branch (glob pattern for all branches)
+  pull_request:
+    branches:
+      - main       # Trigger on pull requests targeting 'main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js environment
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'    # You can specify your Node.js version here
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: |
+        npm ci   # Use 'npm ci' for clean and fast installation in CI environments
+
+    # Step 4: Run Jest tests
+    - name: Run Jest tests
+      run: |
+        npm test   # Or use 'npx jest' if you prefer to run it directly
